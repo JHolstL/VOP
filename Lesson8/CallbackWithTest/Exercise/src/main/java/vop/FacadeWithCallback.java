@@ -28,7 +28,7 @@ public class FacadeWithCallback extends Thread {
 
     public FacadeWithCallback(CallBackInterface callBack, String pathToPics) {
         this.callBack = callBack;
-        this.pathToPics = new File(pathToPics);
+        this.pathToPics = new File("C:\\Users\\Holst\\OneDrive\\Documents\\Diplomingeniør i softwareteknologi\\2. Semester\\VOP programmering\\OpgaverOgForberedelse\\exercises\\Lesson8\\CallbackWithTest\\Exercise\\src\\main\\resources\\vop\\");
         pictures = loadPictures();
         dice = new Dice();
     }
@@ -51,8 +51,11 @@ public class FacadeWithCallback extends Thread {
     private File getPic(int index) {
         return pictures[index];
     }
-    
-   
+
+    public void setDice(Dice dice) {
+        this.dice = dice;
+    }
+
     public Dice getDice(){
         return dice;
     }
@@ -100,5 +103,6 @@ public class FacadeWithCallback extends Thread {
         }
 
     }
+
 
 }
