@@ -12,6 +12,7 @@ import java.util.Random;
 public class ArrayManipulation {
 
     public int[] evenOdd(int[] array) {
+
         int left = 0, right = array.length - 1;
         while (left<right){
             while(array[right]%2 == 0 && left<right)
@@ -33,15 +34,14 @@ public class ArrayManipulation {
     }
 
     private void sort(int [] array, int splitIndex){
-        int temp;
-        if (array[0]< splitIndex) {
-            for (int i = 0; i < splitIndex; i++) {
-                if (array[i] > array[i + 1]) {
-                    temp = array[i];
-                    array[i] = array[i + 1];
-                    array[i++] = temp;
-                }
-            }
+        Arrays.sort(array, 0, splitIndex);
+        for (int i = splitIndex; i<array.length; i++){
+            array[i] = -array[i];
+        }
+
+        Arrays.sort(array, splitIndex, array.length);
+        for(int i = splitIndex; i < array.length; i++){
+            array[i] = -array[i];
         }
     }
 
