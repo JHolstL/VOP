@@ -1,6 +1,7 @@
 package vop;
 
 import java.io.File;
+import java.net.StandardSocketOptions;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,20 @@ public class FindFilesRecursive {
     // Exercise: If a file is a directory: Call all files recursively,
     // else print full path to the file. Count both dirs and atomic files.
     private void findFiles(File file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (file.isDirectory()){
+            noDirs++;
+            File [] files = file.listFiles();
+            for (int i=0; i<files.length; i++){
+                findFiles(files[i]);
+                if(files[i]!= null){
+                    noFiles++;
+                }
+            }
+        }
+        else if (file.getName().equals(file)){
+            noFiles++;
+            System.out.println("Path to " + file + "is: " + file.getAbsolutePath());
+        }
     }
 
 

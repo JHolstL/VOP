@@ -1,7 +1,9 @@
 package vop;
 
+
 import java.util.Arrays;
 import java.util.Random;
+
 
 /**
  * OOP test eksamen f09 opg 1
@@ -10,11 +12,37 @@ import java.util.Random;
 public class ArrayManipulation {
 
     public int[] evenOdd(int[] array) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int left = 0, right = array.length - 1;
+        while (left<right){
+            while(array[right]%2 == 0 && left<right)
+                right--;
+
+            while(array[left]%2 == 1 && left < right)
+                left++;
+
+            if (left < right){
+                int temp = array[right];
+                array[right] = array[left];
+                array[left] = temp;
+                left++;
+                right--;
+            }
+        }
+        sort(array,5);
+        return array;
     }
 
     private void sort(int [] array, int splitIndex){
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int temp;
+        if (array[0]< splitIndex) {
+            for (int i = 0; i < splitIndex; i++) {
+                if (array[i] > array[i + 1]) {
+                    temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i++] = temp;
+                }
+            }
+        }
     }
 
     public static void main(String [] arg){
@@ -29,7 +57,6 @@ public class ArrayManipulation {
     
         int[] result = arrMani.evenOdd(array);
         System.out.println("Output: " +Arrays.toString(result));
-
     }
 }
 
