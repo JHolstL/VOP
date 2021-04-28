@@ -29,7 +29,7 @@ public class ArrayManipulation {
                 right--;
             }
         }
-        sort(array,5);
+        sort(array,left);
         return array;
     }
 
